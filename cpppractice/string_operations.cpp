@@ -10,6 +10,13 @@ namespace local
     }
 
 
+    int charCounter(std::string s){
+        int i;
+        for(i = 0; s[i] != '\0' ; i++);
+        return i;
+    }
+
+
     void rev(char s[]){
         int sz = charCounter(s);
         for(int i = sz ; i >= 0 ; i--){
@@ -33,13 +40,43 @@ namespace local
         return flag;
     }
 
+    char toLowerCaseChar(char c){
+        if(c>='a' && c<='z'){
+            return c;
+        }else{
+            return (c-'A')+'a';
+        }
+    }
+
+    std::string tolowerCaseString(char c[]){
+        int s = local::charCounter(c);
+        for(int i = 0 ; i < s ; i++){
+            if(c[i]>='a' && c[i]<='z'){
+                c[i] = c[i];
+            }else{
+                c[i] = (c[i]-'A')+'a';
+            }
+        }
+        return c;
+    }
+
+    int stringToInt(std::string s){
+        int l = local::charCounter(s);
+        int rint = 0;
+        for(int i = 0 ; i < l ; i++){
+            rint = rint*10;
+            rint = rint + (s[i] - '0');
+        }
+        return rint;
+    }
+
 } // namespace local
 
 
 
 
 int main (){
-    char c[10] = "abcdcba";
+    char c[10] = "ABCDCBA";
     // int a[10] = {12,2,3,4,5,3,5};
 
     // printing charater array using for loop 
@@ -48,7 +85,7 @@ int main (){
     // }
 
     // printing character array using cout statemetn
-    std::cout << c << std::endl;
+    // std::cout << c << std::endl;
     // character array are can be printed directly to terminal without the use of for loop
 
     // the same of printing of integer array withtout the use of for loop is not possible
@@ -59,9 +96,26 @@ int main (){
     // std::cout << *a << std::endl;
     // std::cout << charCounter(c) << std::endl;
 
-    local::rev(c);
+    // this will print the reverse of string on the terminal and dose no give any return value
+    // local::rev(c);
 
-    std::cout << std::boolalpha << local::pelendromeCheck(c) << std::endl;
+    // the pelendrome of the string is checked without using second string. 
+    // The function will return true or false for the prelendrome condition.
+    // std::cout << std::boolalpha << local::pelendromeCheck(c) << std::endl;
+
+
+    // std::cout << local::toLowerCaseChar('l') << std::endl;
+
+    // same concept to converting individual character to lower string is used
+    // just in a for loop making it occur for the entire string.
+    // std::cout << local::tolowerCaseString(c) << std::endl;
+
+
+    // converted the string to integer form if the integer is in form of number
+    // for example "3232" will be converted into 3232 which is integer form.
+    // int x = local::stringToInt("123456478");
+    // std::cout << x << std::endl;
+    // std::cout << typeid(x).name() << std::endl;
 
     return 0;
 }
