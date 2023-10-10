@@ -40,6 +40,23 @@ namespace local
         return flag;
     }
 
+
+    bool pelendromeCheck(std::string s){
+        int l = charCounter(s)-1;
+        int i = 0;
+        bool flag = true;
+        while(i<l){
+            if(s[i]==s[l]){
+                flag = true;
+            }else{
+                flag = false;
+            }
+            i++;l--;
+        }
+        return flag;
+    }
+
+
     char toLowerCaseChar(char c){
         if(c>='a' && c<='z'){
             return c;
@@ -70,13 +87,40 @@ namespace local
         return rint;
     }
 
+
+    bool specialCharacter(char c){
+        if((c >= 'a' && c <= 'z') || ( c >= 'A' && c <= 'Z') || (c>='0' && c <='9') ){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+
+    bool chaeckPelendromeIgnoringSpecialChar(char s[]){
+        int sl = local::charCounter(s);
+        std::string temp;
+        for(int i = 0 ; i < sl; i++){
+            if(local::specialCharacter(s[i])){
+                temp.push_back(local::toLowerCaseChar(s[i]));
+            }
+        }
+        return local::pelendromeCheck(temp);
+        
+    }
+
+
+    
+
+
 } // namespace local
 
 
 
 
 int main (){
-    char c[10] = "ABCDCBA";
+    // char c[15] = "a#a@c$D&C!B*A";
+    char c[15] = "";
     // int a[10] = {12,2,3,4,5,3,5};
 
     // printing charater array using for loop 
@@ -116,6 +160,8 @@ int main (){
     // int x = local::stringToInt("123456478");
     // std::cout << x << std::endl;
     // std::cout << typeid(x).name() << std::endl;
+
+    std::cout << std::boolalpha << local::chaeckPelendromeIgnoringSpecialChar(c) << std::endl;
 
     return 0;
 }
