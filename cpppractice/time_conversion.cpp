@@ -10,18 +10,15 @@ using namespace std;
  */
 
 string timeConversion(string s) {
-    string st = "A";
-    if(s[8]==st[0]){
-        if((int)(s[0]+s[1]) > 0 ){
-            cout << (int)s[1] << endl;
-            return s;
-        }else if((int)(s[0]+s[1]) == 12){
-            s[0] == s[1] == '0';
-        }
-    }else if((int)(s[0]+s[1]) > 12) {
-        cout << "pm";
-    }
-    return "hello";
+    const char * hour = s.substr(0,2).c_str();
+    char h = *hour;
+    std::cout << hour << std::endl;
+    std::cout << h << h << std::endl;
+    const char * minutes = s.substr(3,2).c_str();
+    const char * seconds = s.substr(6,2).c_str();
+
+    return s;
+
 }
 
 int main()
