@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+
+# ignoring some files 
+tempCodeRunnerFile.cpp
