@@ -34,3 +34,6 @@
 
 # ignoring some files 
 tempCodeRunnerFile.cpp
+
+#ignoring temprary folders
+temp/
